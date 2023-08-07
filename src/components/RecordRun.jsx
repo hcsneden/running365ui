@@ -1,55 +1,47 @@
-import { Button, Form, Spinner } from "react-bootstrap"
-import { Row } from "react-bootstrap"
-import { Col } from "react-bootstrap"
-import { putData } from "../backend/api"
-import { useState } from "react"
-
-export const RecordRun = () => {
+import { getData, putData } from "../backend/api"
+export const RecordRun = (props) => {
     let request = {
         date: "", distance: 0
     }
-    const [loading, setLoading] = useState(false)
     const handleFormChange = (e) => {
         request[e.target.name] = e.target.value
-        console.log(request)
     }
 
     const handleFormSubmit = async () => {
-        try{
+        try {
             setLoading(true)
             const response = await putData(request)
             console.log(response)
-            setLoading(false)
-        }catch(error){
+            props.onSubmit
+        } catch (error) {
             console.log(error)
         }
-        
+        setLoading(false)
     }
-    return (
-        <>
-            {loading && <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>}
-            <div>Record a Run</div>
-            <Form onSubmit={handleFormSubmit}>
-                <Form.Group onChange={handleFormChange} as={Row} className="mb-3">
-                    <Form.Label column sm="2">
-                        Date
-                    </Form.Label>
 
-                    <Col sm="4">
-                        <Form.Control name="date" type="date" />
-                    </Col>
-                </Form.Group>
-                <Form.Group onChange={handleFormChange} as={Row} className="mb-3">
-                    <Form.Label column sm="2">
-                        Distance
-                    </Form.Label>
-                    <Col sm="4">
-                        <Form.Control name="distance" />
-                    </Col>
-                </Form.Group>
-                <Button type="submit">Submit</Button>
-            </Form></>
+    return (
+        <Form className='entry-form'>
+            <Row className='form-row'>
+                <Col md={{ span: 4, offset: 1 }}>
+                    <Form.Group onChange={handleFormChange} as={Row} className="mb-3">
+                        <Form.Label className="form-label">
+                            Date
+                        </Form.Label>
+                        <Form.Control className='form-input' name="date" type="date" />
+
+                    </Form.Group>
+                </Col>
+                <Col md={{ span: 4, offset: 2 }}>
+                    <Form.Group onChange={handleFormChange} as={Row} className="mb-3">
+                        <Form.Label className="form-label">
+                            Distance
+                        </Form.Label>
+                        <Form.Control className='form-input' name="distance" />
+
+                    </Form.Group>
+                </Col>
+            </Row>
+            <Button onClick={handleFormSubmit} className='submit-button' type="submit">Submit</Button>
+        </Form>
     )
 }

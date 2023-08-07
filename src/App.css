@@ -1,27 +1,77 @@
 .App {
-  
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-
-}
-
-.summary-card{
-  border: 15px solid white;
-  height: 300px;
-  border-radius: 7px;
+  text-align: center;
   font-family: Bangers;
 }
 
-.card-title{
+.negative {
+  color: #9F4646;
+}
+
+.positive {
+  color: #469F6A
+}
+
+.summary-card {
+  border: 15px solid white;
+  padding: 0 0 5% 0;
+  border-radius: 7px;
+  font-family: Bangers;
+  letter-spacing: 4.16px;
+}
+
+.summary-section {
+  margin: 3% 0;
   font-size: 48px;
 }
 
-body{
+.card-title {
+  font-size: 48px;
+}
+
+.card-value {
+  font-size: 96px;
+}
+
+body {
   background-color: #262626;
   color: #FFF;
+}
+
+.entry-form {
+  border-radius: 7px;
+  border: 14px solid #000;
+  background: #888;
+  width: 60%;
+  margin: 5% 20%
+}
+
+.form-row {
+  padding: 30px 30px 20px 30px;
+}
+
+.submit-button {
+  margin-bottom: 30px;
+  background-color: #000;
+  border-color: #000;
+  font-size: 24px;
+}
+
+.submit-button:hover {
+  background-color: #4c4c4c;
+  border-color: #000;
+}
+
+.form-label {
+  font-size: 36px;
+}
+
+.form-input {
+  color: #000;
+  font-family: JetBrains Mono;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 2.08px;
 }
 
 .nav {
