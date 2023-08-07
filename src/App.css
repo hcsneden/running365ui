@@ -74,6 +74,10 @@ body {
   letter-spacing: 2.08px;
 }
 
+.history-data {
+  font-family: JetBrains Mono;
+  letter-spacing: 2.08px;
+}
 .nav {
   background-color: black;
   color: #FFF;

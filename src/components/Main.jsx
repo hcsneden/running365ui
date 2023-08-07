@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { getData, putData } from "../backend/api"
-import { AttributeValue as db } from "dynamodb-data-types"
 import { Button, Container, Form, Row, Col, Spinner } from "react-bootstrap";
 import { History } from "./History";
 
