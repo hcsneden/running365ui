@@ -4,7 +4,7 @@ import { AttributeValue as db } from "dynamodb-data-types"
 import { Button, Container, Form, Row, Col, Spinner } from "react-bootstrap";
 import { History } from "./History";
 
-export function Main(props) {
+export function Main() {
     const oneDay = 1000 * 60 * 60 * 24
     const today = new Date()
     const bday = new Date(today.getFullYear(), 6, 20)
@@ -12,13 +12,6 @@ export function Main(props) {
     const [data, setData] = useState();
     const [total, setTotal] = useState();
     const [loading, setLoading] = useState(false)
-
-    const getTotal = () => {
-        let runningTotal = 0
-        data?.forEach(item => runningTotal += parseFloat(item.distance))
-        setTotal(runningTotal)
-        console.log(total)
-    }
 
     useEffect(() => {
         async function getHistory() {
@@ -38,6 +31,12 @@ export function Main(props) {
         getHistory();
     }, []);
 
+    const getTotal = () => {
+        let runningTotal = 0
+        data.forEach(item => runningTotal += parseFloat(item.distance))
+        setTotal(runningTotal)
+    }
+
 
     let request = {
         date: "", distance: 0
@@ -55,18 +54,15 @@ export function Main(props) {
             const apiData = await getData();
             setData(apiData)
             getTotal()
+            setLoading(false)
             
         } catch (error) {
             console.log(error)
         }
-        setLoading(false)
+        
     }
 
     const getSummaryMessage = () => {
-        const t = total
-        console.log('total - ', t)
-        const day = daysSince.toFixed(0)
-        console.log('days - ', day)
         const progress = daysSince.toFixed(0) - total
         if (progress > 0) {
             return (
@@ -75,7 +71,7 @@ export function Main(props) {
         }
         else
             return (
-                <span>You are <span>{progress}</span> miles <span className="positive">behind</span> your goal</span>
+                <span>You are <span>{progress}</span> miles <span className="positive">ahead</span> of your goal</span>
             )
     }
 
