@@ -87,6 +87,7 @@ body {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 4.16px;
+  padding: 15px
 }
 
 @media (prefers-reduced-motion: no-preference) {

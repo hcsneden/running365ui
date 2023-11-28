@@ -33,7 +33,7 @@ export function Main() {
     const getTotal = () => {
         let runningTotal = 0
         data.forEach(item => runningTotal += parseFloat(item.distance))
-        setTotal(runningTotal)
+        setTotal(runningTotal.toFixed(2))
     }
 
 
