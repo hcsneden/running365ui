@@ -13,7 +13,7 @@
 
 .summary-card {
   border: 15px solid white;
-  padding: 0 0 5% 0;
+  padding: 5% 0 5% 0;
   border-radius: 7px;
   font-family: Bangers;
   letter-spacing: 4.16px;
@@ -25,11 +25,13 @@
 }
 
 .card-title {
-  font-size: 48px;
+  font-size: 36px;
+  font-family: JetBrains Mono;
 }
 
 .card-value {
   font-size: 96px;
+  margin-top: -7%;
 }
 
 body {
@@ -90,11 +92,6 @@ body {
   padding: 15px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -111,12 +108,21 @@ body {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 500px){
+  .summary-card {
+    padding: 7% 0 5% 0;
+    margin-bottom: 20px;
   }
-
-  to {
-    transform: rotate(360deg);
+  .card-value {
+    font-size: 80px;
+    margin-top: -10%;
+  }
+  .card-title {
+    font-size: 32px;
+    
+  }
+  .summary-section {
+    margin: 10% 0;
+    font-size: 32px;
   }
 }

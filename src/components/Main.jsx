@@ -52,7 +52,7 @@ export function Main() {
             console.log(response)
             const apiData = await getData();
             setData(apiData)
-            getTotal()
+            setTotal()
             setLoading(false)
             
         } catch (error) {
@@ -62,6 +62,7 @@ export function Main() {
     }
 
     const getSummaryMessage = () => {
+        
         const progress = daysSince.toFixed(0) - total
         if (progress > 0) {
             return (
@@ -86,16 +87,16 @@ export function Main() {
                         <div className="summary-section">{getSummaryMessage()}</div>
                         <Row >
 
-                            <Col md={{ span: 3, offset: 2 }} className="summary-card"><div className="card-title">Day: </div>
+                            <Col md={{ span: 3, offset: 2 }} sm={{ span: 3, offset: 2 }} xs={{ span: 8, offset: 2 }} className="summary-card"><div className="card-title">Day:</div>
                                 <div className="card-value">{daysSince.toFixed(0)}</div></Col>
-                            <Col md={2}></Col>
-                            <Col md={3} className="summary-card"><div className="card-title">Miles: </div>
+                            <Col md={2} sm={0}></Col>
+                            <Col md={{span: 3, offset: 0}} xs={{span: 8, offset: 2}}className="summary-card"><div className="card-title">Miles:</div>
                                 <div className="card-value">{total ? total : getTotal()}</div></Col>
                         </Row>
                         <Form className='entry-form'>
                             <Row className='form-row'>
                                 <Col md={{ span: 4, offset: 1 }}>
-                                    <Form.Group onChange={handleFormChange} as={Row} className="mb-3">
+                                    <Form.Group onChange={handleFormChange} required as={Row} className="mb-3">
                                         <Form.Label className="form-label">
                                             Date
                                         </Form.Label>
