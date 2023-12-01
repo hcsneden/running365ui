@@ -6,11 +6,14 @@ import { History } from "./History";
 export function Main() {
     const oneDay = 1000 * 60 * 60 * 24
     const today = new Date()
-    const bday = new Date(today.getFullYear(), 6, 20)
+    const bday = new Date(2023, 6, 20)
+    const nextBday = new Date(2024, 6, 20)
     const daysSince = Math.round(today.getTime() - bday.getTime()) / (oneDay);
+    const daysUntil = 365-daysSince
     const [data, setData] = useState();
     const [total, setTotal] = useState();
     const [loading, setLoading] = useState(false)
+    const [perDay, setPerDay] = useState();
 
     useEffect(() => {
         async function getHistory() {
@@ -64,9 +67,12 @@ export function Main() {
     const getSummaryMessage = () => {
         
         const progress = daysSince.toFixed(0) - total
+
+        const rate = (progress / daysUntil.toFixed(0)) + 1
+        console.log(daysUntil)
         if (progress > 0) {
             return (
-                <span>You are <span>{progress}</span> miles <span className="negative">behind</span> your goal</span>
+                <><span>You are <span>{progress}</span> miles <span className="negative">behind</span> your goal. </span><br/><span style={{fontFamily: 'JetBrains Mono', fontSize: '16px'}}>-You need to run {rate.toFixed(2)} miles a day to reach your goal-</span></>
             )
         }
         else
