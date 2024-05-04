@@ -75,6 +75,15 @@ body {
   line-height: normal;
   letter-spacing: 2.08px;
 }
+.table{
+  color: unset;
+}
+
+tr.same-col-widths th {
+  width: 9%;
+  font-size: 24px;
+}
+
 
 .history-data {
   font-family: JetBrains Mono;
