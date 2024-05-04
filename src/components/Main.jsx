@@ -6,14 +6,12 @@ import { History } from "./History";
 export function Main() {
     const oneDay = 1000 * 60 * 60 * 24
     const today = new Date()
-    const bday = new Date(2023, 6, 20)
-    const nextBday = new Date(2024, 6, 20)
-    const daysSince = Math.round(today.getTime() - bday.getTime()) / (oneDay);
+    const startDate = new Date(2024, 0, 1)
+    const daysSince = Math.round(today.getTime() - startDate.getTime()) / (oneDay);
     const daysUntil = 365-daysSince
     const [data, setData] = useState();
     const [total, setTotal] = useState();
     const [loading, setLoading] = useState(false)
-    const [perDay, setPerDay] = useState();
 
     useEffect(() => {
         async function getHistory() {
@@ -21,7 +19,13 @@ export function Main() {
             try {
 
                 const apiData = await getData();
-                setData(apiData)
+                let filtered = []
+                apiData.forEach(item => {
+                    if (new Date(item.date) > startDate){
+                        filtered.push(item)
+                    }
+                })
+                setData(filtered)
                 getTotal()
 
             }
@@ -35,7 +39,10 @@ export function Main() {
 
     const getTotal = () => {
         let runningTotal = 0
-        data.forEach(item => runningTotal += parseFloat(item.distance))
+        data.forEach(item => 
+            {   
+                runningTotal += parseFloat(item.distance)
+            })
         setTotal(runningTotal.toFixed(2))
     }
 

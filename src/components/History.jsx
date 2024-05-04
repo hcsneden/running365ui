@@ -9,7 +9,7 @@ export const History = (props) => {
 
 
     return (
-        <Container>
+        <Container style={{paddingBottom: '5%'}}>
             <Row>
                 <Col md={{span: 3, offset: 3}} xs={{span: 4, offset: 2}} >Date</Col>
                 <Col md={3} xs={5}>Distance</Col>
