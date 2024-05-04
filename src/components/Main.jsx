@@ -43,7 +43,7 @@ export function Main() {
             {   
                 runningTotal += parseFloat(item.distance)
             })
-        setTotal(runningTotal.toFixed(2))
+        setTotal(runningTotal.toFixed(1))
     }
 
 
