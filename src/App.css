@@ -1,29 +1,94 @@
 .App {
-  
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-
-}
-
-.summary-card{
-  border: 15px solid white;
-  height: 300px;
-  border-radius: 7px;
+  text-align: center;
   font-family: Bangers;
 }
 
-.card-title{
+.negative {
+  color: #9F4646;
+}
+
+.positive {
+  color: #469F6A
+}
+
+.summary-card {
+  border: 15px solid white;
+  padding: 5% 0 5% 0;
+  border-radius: 7px;
+  font-family: Bangers;
+  letter-spacing: 4.16px;
+}
+
+.summary-section {
+  margin: 3% 0;
   font-size: 48px;
 }
 
-body{
+.card-title {
+  font-size: 36px;
+  font-family: JetBrains Mono;
+}
+
+.card-value {
+  font-size: 96px;
+  margin-top: -7%;
+}
+
+body {
   background-color: #262626;
   color: #FFF;
 }
 
+.entry-form {
+  border-radius: 7px;
+  border: 14px solid #000;
+  background: #888;
+  width: 60%;
+  margin: 5% 20%
+}
+
+.form-row {
+  padding: 30px 30px 20px 30px;
+}
+
+.submit-button {
+  margin-bottom: 30px;
+  background-color: #000;
+  border-color: #000;
+  font-size: 24px;
+}
+
+.submit-button:hover {
+  background-color: #4c4c4c;
+  border-color: #000;
+}
+
+.form-label {
+  font-size: 36px;
+}
+
+.form-input {
+  color: #000;
+  font-family: JetBrains Mono;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 2.08px;
+}
+.table{
+  color: unset;
+}
+
+tr.same-col-widths th {
+  width: 9%;
+  font-size: 24px;
+}
+
+
+.history-data {
+  font-family: JetBrains Mono;
+  letter-spacing: 2.08px;
+}
 .nav {
   background-color: black;
   color: #FFF;
@@ -33,13 +98,9 @@ body{
   font-weight: 400;
   line-height: normal;
   letter-spacing: 4.16px;
+  padding: 15px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -56,12 +117,21 @@ body{
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 500px){
+  .summary-card {
+    padding: 7% 0 5% 0;
+    margin-bottom: 20px;
   }
-
-  to {
-    transform: rotate(360deg);
+  .card-value {
+    font-size: 80px;
+    margin-top: -10%;
+  }
+  .card-title {
+    font-size: 32px;
+    
+  }
+  .summary-section {
+    margin: 10% 0;
+    font-size: 32px;
   }
 }
